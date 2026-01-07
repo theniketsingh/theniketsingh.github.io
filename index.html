@@ -99,6 +99,22 @@
 <footer>
     © 2026 Niket Singh
 </footer>
+<script>
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
 
+    document.querySelectorAll(".section, .hero").forEach(el => {
+        el.classList.add("hidden");
+        observer.observe(el);
+    });
+</script>
 </body>
 </html>
